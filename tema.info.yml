@@ -1,0 +1,20 @@
+name: Tema
+type: theme
+core_version_requirement: ^8 || ^9
+description: Mi tema que se llama Tema
+package: Custom
+base theme: classy
+libraries:
+  - tema/global-styling
+  - tema/global-scripts
+
+regions:
+  branding: Branding
+  primary_menu: 'Primary Menu'
+  secondary_menu: 'Secondary Menu'
+  jumbotrom: Jumbotrom
+  breadcrumb: Breadcrumb
+  content: Content
+  sidebar_first: 'Sidebar First'
+  sidebar_second: 'Sidebar Second'
+  footer: Footer
