@@ -2,11 +2,11 @@ global-styling:
   version: 1.0
   css:
     theme:
-      css/main.css: {}
+      assets/css/main.css: {}
 
 global-scripts:
   version: 1.0
   js:
-    js/main.js: {}
+    assets/js/main.js: {}
   dependencies:
     - core/jquery

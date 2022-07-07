@@ -1,4 +1,4 @@
-{% extends "block.html.twig" %}
+{# {% extends "block.html.twig" %} #}
 {#
 /**
  * @file
@@ -13,18 +13,27 @@
  * - site_slogan: Slogan for site as defined in Site information settings.
  */
 #}
-{% block content %}
-  {% if site_logo %}
-    <a href="{{ path('<front>') }}" rel="home" class="site-logo">
-      <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
-    </a>
-  {% endif %}
-  {% if site_name %}
-    <div class="site-name">
-      <a href="{{ path('<front>') }}" rel="home">{{ site_name }}</a>
-    </div>
-  {% endif %}
-  {% if site_slogan %}
-    <div class="site-slogan">{{ site_slogan }}</div>
-  {% endif %}
-{% endblock %}
+
+<div class="navbar-brand d-flex">
+  {% block content %}
+    {% if site_logo %}
+      <a href="{{ path('<front>') }}" rel="home" class="d-inline-block">
+        <img width="48" src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
+      </a>
+    {% endif %}
+
+    <hgroup>
+      {% if site_name %}
+        <h1>
+          <a href="{{ path('<front>') }}" rel="home" class="text-decoration-none">
+            {{ site_name }}
+          </a>
+        </h1>
+      {% endif %}
+
+      {% if site_slogan %}
+        <h6 class="site-slogan">{{ site_slogan }}</h6>
+      {% endif %}
+    </hgroup>
+  {% endblock %}
+</div>

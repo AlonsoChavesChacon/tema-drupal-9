@@ -42,45 +42,49 @@
  * @see html.html.twig
  */
 #}
+
+{% if (page.sidebar_first and page.sidebar_second) %}
+  {% set contentClass = ['col-6'] %}
+{% elseif (page.sidebar_first or page.sidebar_second) %}
+  {% set contentClass = ['col-9'] %}
+{% else %}
+  {% set contentClass = ['col-12'] %}
+{% endif %}
+
 <div class="layout-container">
 
-  <header role="banner">
-    {{ page.branding }}
+  <header role="banner" class="container-fluid">
+    {% include '@tema/layout/navbar.html.twig' %}
   </header>
-
-  {{ page.primary_menu }}
-  {{ page.secondary_menu }}
-
-  {{ page.breadcrumb }}
-
-  {{ page.highlighted }}
-
-  {{ page.help }}
 
   <main role="main">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-    <div class="layout-content">
-      {{ page.content }}
+    <div class="container">
+      <div class="row">
+        {% if page.sidebar_first %}
+          <aside class="layout-sidebar-first col-3" role="complementary">
+            {{ page.sidebar_first }}
+          </aside>
+        {% endif %}
+
+        <div{{ attributes.addClass(contentClass) }}>
+          {{ page.content }}
+        </div>
+
+        {% if page.sidebar_second %}
+          <aside class="layout-sidebar-first col-3" role="complementary">
+            {{ page.sidebar_second }}
+          </aside>
+        {% endif %}
+      </div>
     </div>{# /.layout-content #}
-
-    {% if page.sidebar_first %}
-      <aside class="layout-sidebar-first" role="complementary">
-        {{ page.sidebar_first }}
-      </aside>
-    {% endif %}
-
-    {% if page.sidebar_second %}
-      <aside class="layout-sidebar-second" role="complementary">
-        {{ page.sidebar_second }}
-      </aside>
-    {% endif %}
-
+    
   </main>
 
   {% if page.footer %}
     <footer role="contentinfo">
-      {{ page.footer }}
+      <div class="container">{{ page.footer }}</div>
     </footer>
   {% endif %}
 
