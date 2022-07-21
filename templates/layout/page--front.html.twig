@@ -50,43 +50,60 @@
 	<main role="main">
 		<a id="main-content" tabindex="-1"></a>
 
-		<div class="front-container">
-			{% if page.jumbotrom %}
-				{{ page.jumbotrom }}
-			{% endif %}
-			<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://sertacentroamerica.com/costarica/wp-content/uploads/sites/3/2021/05/placeholder-106.png" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://sertacentroamerica.com/costarica/wp-content/uploads/sites/3/2021/05/placeholder-106.png" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://sertacentroamerica.com/costarica/wp-content/uploads/sites/3/2021/05/placeholder-106.png" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-			{{ page.content }}
+		{% if page.jumbotrom %}
+			{{ page.jumbotrom }}
+		{% endif %}
+
+		<div class="front-section">
+		<div class="container background-size">
+			<div
+				class="row">
+				{# ----HIGHLIGHT 1---- #}
+				{% if page.highlight_first %}
+					<aside class="layout-sidebar-first col-4" role="complementary">
+						{{ page.highlight_first }}
+					</aside>
+				{% endif %}
+
+				{# ----HIGHLIGHT 2---- #}
+				{% if page.highlight_second %}
+					<aside class="layout-sidebar-first col-4" role="complementary">
+						{{ page.highlight_second }}
+					</aside>
+				{% endif %}
+
+				{# ----HIGHLIGHT 3---- #}
+				{% if page.highlight_third %}
+					<aside class="layout-sidebar-first col-4" role="complementary">
+						{{ page.highlight_third }}
+					</aside>
+				{% endif %}
+			</div>
 		</div>
-		
+		</div>
+
+		{# Marging content #}
+		<div class="front-container">
+
+
+			{{ page.content }}
+
+		</div>
+
 	</main>
 
-	{% if page.footer %}
-		<footer role="contentinfo">
-			<div class="container">
-				{{ page.footer }}
+	<footer role="contentinfo">
+		<div class="footer">
+			<div class="py-5">
+				<div class="row d-flex justify-content-evenly footer-color">
+					<div class="d-flex justify-content-left py-4">
+						{% if page.footer %}
+							{{ page.footer }}
+						{% endif %}
+					</div>
+				</div>
 			</div>
 		</footer>
-	{% endif %}
 
-</div>
-{# /.layout-container #}
+	</div>
+	{# /.layout-container #}

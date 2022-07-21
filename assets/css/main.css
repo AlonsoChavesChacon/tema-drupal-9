@@ -11338,10 +11338,6 @@ a {
   margin-bottom: 2em;
 }
 
-.carousel {
-  margin: 4em;
-}
-
 .field__label {
   color: #ffffff;
 }
@@ -11366,8 +11362,18 @@ a {
   text-decoration: none;
 }
 
-footer {
+.front-section {
+  background: url("https://images.ecestaticos.com/MUsrmUgYGUwR5M6ZyyHCDmeFRUk=/0x0:2121x1414/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2Fd9e%2F66d%2F793%2Fd9e66d793adbc994841e60850a17e61c.jpg");
+}
+
+.background-size {
+  padding: 10em 0em;
+}
+
+.footer {
   background-color: #181818;
+}
+.footer .footer-color {
   color: #ffffff;
 }
 
